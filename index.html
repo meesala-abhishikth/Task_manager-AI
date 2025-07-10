@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Advanced Task Manager + AI</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>🌿 Advanced Task Manager + AI</h1>
+    <p>Organize smarter, live better.</p>
+  </header>
+
+  <div class="task-form">
+    <input type="text" id="taskName" placeholder="Task Name" />
+    <input type="text" id="description" placeholder="Description" />
+    <input type="date" id="dueDate" />
+    <select id="priority">
+      <option value="Low">Low Priority</option>
+      <option value="Medium" selected>Medium Priority</option>
+      <option value="High">High Priority</option>
+    </select>
+    <button onclick="addTask()">Add Task</button>
+  </div>
+
+  <div class="search-box">
+    <input type="text" id="searchInput" placeholder="Search tasks..." oninput="renderTasks()" />
+  </div>
+
+  <div class="filter-box">
+    <select id="priorityFilter" onchange="renderTasks()">
+      <option value="">All Priorities</option>
+      <option value="High">High Priority</option>
+      <option value="Medium">Medium Priority</option>
+      <option value="Low">Low Priority</option>
+    </select>
+    <select id="statusFilter" onchange="renderTasks()">
+      <option value="">All Statuses</option>
+      <option value="completed">Completed</option>
+      <option value="pending">Pending</option>
+    </select>
+    <select id="sortBy" onchange="renderTasks()">
+      <option value="">Sort By</option>
+      <option value="date">Due Date</option>
+      <option value="priority">Priority</option>
+    </select>
+  </div>
+
+  <div class="task-list" id="taskList"></div>
+
+  <div class="ai-box">
+    <h3>🧠 AI Assistant (Offline)</h3>
+    <textarea id="aiInput" placeholder="Ask AI to suggest a task..." rows="3"></textarea>
+    <button onclick="handleAI()">Generate Task</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
